@@ -1,0 +1,22 @@
+{
+  "name": "crypto_blockchain",
+  "version": "1.0.0",
+  "description": "Blockchain based cryptocurrency fullstack application",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhagyeshrathi07/Crypto_Blockchain.git"
+  },
+  "author": "Bhagyesh Rathi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhagyeshrathi07/Crypto_Blockchain/issues"
+  },
+  "homepage": "https://github.com/bhagyeshrathi07/Crypto_Blockchain#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
