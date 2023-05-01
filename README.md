@@ -1,2 +1,2 @@
 # Crypto_Blockchain
-Building a crypto and blockchain 
+A fullstack cryptocurrency based on blockchain
