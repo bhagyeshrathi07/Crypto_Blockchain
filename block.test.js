@@ -9,7 +9,7 @@ describe('Block', () => {
     const data = ['Blockchain', 'data'];
     const block = new Block({ timestamp, lastHash, hash, data });
 
-    // testing if block has all the properties
+    // testing if block has all the defined properties
     it('has a timestamp, lastHash, hash, and data property', () => {
         expect(block.timestamp).toEqual(timestamp);
         expect(block.lastHash).toEqual(lastHash);
@@ -21,7 +21,7 @@ describe('Block', () => {
     describe('genesis()', () => {
         const genesisBlock = Block.genesis();
 
-        it('returns a Block instatnce', () => {
+        it('returns a Block instance', () => {
             expect(genesisBlock instanceof Block).toBe(true);
         });
 
