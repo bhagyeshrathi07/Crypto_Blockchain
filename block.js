@@ -12,6 +12,15 @@ class Block{
     static genesis() {
         return new Block(GENESIS_DATA);
     }
+
+    // mine block
+    static mineBlock({ lastBlock, data }) {
+        return new Block({
+            timestamp: Date.now(),
+            lastHash: lastBlock.hash,
+            data: data
+        });
+    }
 }
 
 module.exports = Block;
