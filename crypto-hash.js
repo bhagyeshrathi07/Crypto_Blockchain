@@ -10,4 +10,4 @@ const cryptoHash = (...inputs) => {
     return hash.digest('hex');
 };
 
-module.exports = cryptoHash;
+module.exports = cryptoHash; 
