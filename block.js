@@ -1,4 +1,4 @@
-const { GENESIS_DATA} = require('./config');
+const { GENESIS_DATA, MINE_RATE} = require('./config');
 const cryptoHash = require('./crypto-hash');
 
 class Block{
@@ -33,6 +33,17 @@ class Block{
         } while (hash.substring(0, difficulty) !== '0'.repeat(difficulty));
 
         return new Block({ timestamp, lastHash, data, difficulty, nonce, hash });
+    }
+
+    // Dynamic difficulty 
+    static adjustDifficulty({ originalBlock, timestamp}) {
+        const { difficulty } = originalBlock;
+        // if time is greater than mine rate reduce the difficulty
+        if((timestamp - originalBlock.timestamp) > MINE_RATE) {
+            return difficulty - 1;
+        }
+        // else increase the difficulty
+        return difficulty + 1;
     }
 }
 
