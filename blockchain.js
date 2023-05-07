@@ -45,6 +45,26 @@ class Blockchain {
         }
         return true;
     }
+
+    // Chain replacement
+    replaceChain(chain) {
+        // if the argument chain is shorter don't replace
+        if(chain.length <= this.chain.length) {
+            // show the error message
+            console.error('Incoming chain must be longer!');
+            return;
+        }
+        // if the argument chain is not valid chain don't replace
+        if(!Blockchain.isValidChain(chain)) {
+            // show the error message
+            console.error('Incoming chain must be valid!');
+            return;
+        }
+
+        // else replace the chain
+        console.log('replacing chain with', chain)
+        this.chain = chain;
+    }
 }
 
 module.exports = Blockchain;
