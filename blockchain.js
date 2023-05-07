@@ -25,7 +25,7 @@ class Blockchain {
         };
 
         for(let i = 1; i < chain.length; i++) {
-            const {timestamp, lastHash, hash, data} = chain[i];
+            const {timestamp, lastHash, hash, nonce, difficulty, data} = chain[i];
 
             // stores the hash of the last block 
             const actualLastHash = chain[i-1].hash;
@@ -36,7 +36,7 @@ class Blockchain {
             }
 
             // calculate the hash of the current block with appropriate data and hash function
-            const validatedHash = cryptoHash(timestamp, lastHash, data);
+            const validatedHash = cryptoHash(timestamp, lastHash, nonce, difficulty, data);
 
             // if hash of the current block is not equal to the calcualted hash with appropriate data and function return false
             if(hash !== validatedHash) {
