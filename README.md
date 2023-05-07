@@ -4,7 +4,7 @@ A fullstack cryptocurrency based on blockchain
 ![Course Logo]()
 
 ## References:
-* [https://www.udemy.com/build-blockchain-full-stack]([https://www.udemy.com/build-blockchain-full-stack](https://www.udemy.com/course/build-blockchain-full-stack/))
+* [build-blockchain-full-stack/](https://www.udemy.com/course/build-blockchain-full-stack/)
 
 ## Description
 
