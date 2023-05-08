@@ -30,6 +30,8 @@ class Blockchain {
             // stores the hash of the last block 
             const actualLastHash = chain[i-1].hash;
 
+            const lastDifficulty = chain[i-1].difficulty;
+
             // if lastHash from the current block is not equal to the hash value of the last block return false
             if (lastHash !== actualLastHash) {
                 return false;
@@ -42,6 +44,8 @@ class Blockchain {
             if(hash !== validatedHash) {
                 return false;
             }
+
+            if (Math.abs((lastDifficulty - difficulty)) > 1) return false;
         }
         return true;
     }
