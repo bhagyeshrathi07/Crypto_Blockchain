@@ -22,13 +22,15 @@ class Block{
         let hash, timestamp;
         const lastHash = lastBlock.hash;
         // get the difficulty from the last block 
-        const { difficulty } = lastBlock;
+        let { difficulty } = lastBlock;
         let nonce = 0;
 
         // adjust value of nonce according to the difficulty and update the timestamp and hash according to it.
         do {
             nonce++;
             timestamp = Date.now();
+            // dynamically create difficulty relevent to the current timestamp as well as the lastblock
+            difficulty = Block.adjustDifficulty({originalBlock: lastBlock, timestamp});
             hash = cryptoHash(timestamp, lastHash, data, nonce, difficulty);
         } while (hash.substring(0, difficulty) !== '0'.repeat(difficulty));
 
@@ -38,6 +40,9 @@ class Block{
     // Dynamic difficulty 
     static adjustDifficulty({ originalBlock, timestamp}) {
         const { difficulty } = originalBlock;
+
+        if(difficulty < 1) return 1;
+
         // if time is greater than mine rate reduce the difficulty
         if((timestamp - originalBlock.timestamp) > MINE_RATE) {
             return difficulty - 1;
